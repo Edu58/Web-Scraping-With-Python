@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import re
 import random
 
+pages = set()
+
 #Retrieves a list of all Internal links found on a page
 def getInternalLinks(bs, includeUrl):
     includeUrl = '{}://{}'.format(urlparse(includeUrl).scheme, urlparse(includeUrl).netloc)
@@ -57,4 +59,4 @@ def followExternalOnly(startingSite):
     print('Random external link is: {}'.format(externalLink))
     followExternalOnly(externalLink)
 
-    followExternalOnly('http://oreilly.com')
+followExternalOnly('https://docs.python.org/3/library/urllib.parse.html')
